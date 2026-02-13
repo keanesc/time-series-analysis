@@ -1,14 +1,36 @@
 # Ambulance Vitals — Anomaly Detection Pipeline
 
+[![Publish Docker image](https://github.com/keanesc/time-series-analysis/actions/workflows/publish-ghcr.yml/badge.svg)](https://github.com/keanesc/time-series-analysis/actions)
+[![GHCR image](https://img.shields.io/badge/ghcr.io%2Fkeanesc%2Ftime--series--analysis-latest-blue?logo=github&logoColor=white)](https://github.com/keanesc?tab=packages)
+
 Production-oriented pipeline for early-warning anomaly detection and triage risk scoring from streamed vitals (HR, SpO2, ABP).
 
 ## Quick start
 
-This project uses [pixi](https://pixi.sh) for environment management [2].
+### Default (recommended): run the published GHCR image
 
-- Install: `pixi install`
-- Run API: `pixi run serve` → [local](http://localhost:8000)
-- Run full pipeline: `pixi run all`
+```bash
+docker pull ghcr.io/keanesc/time-series-analysis:latest
+docker run -p 8000:8000 ghcr.io/keanesc/time-series-analysis:latest
+```
+
+Verify the service:
+
+```bash
+curl http://localhost:8000/health
+```
+
+### Manual installation (from source)
+
+This project uses [pixi](https://pixi.sh) for environment management. Use the commands below when developing locally or running from source.
+
+```bash
+# clone the repo (SSH or HTTPS)
+cd time-series-analysis
+pixi install
+pixi run serve  # open http://localhost:8000
+pixi run all    # run full pipeline
+```
 
 ## Core commands
 
@@ -43,10 +65,21 @@ Response:
 
 ## Docker
 
+Build locally:
+
 ```bash
-docker build -t ambulance-ml .
-docker run -p 8000:8000 ambulance-ml
+docker build -t time-series-analysis .
+docker run -p 8000:8000 time-series-analysis
 ```
+
+Published image (GHCR):
+
+```bash
+docker pull ghcr.io/keanesc/time-series-analysis:latest
+docker run -p 8000:8000 ghcr.io/keanesc/time-series-analysis:latest
+```
+
+The repository includes a GitHub Actions workflow (`.github/workflows/publish-ghcr.yml`) that builds and publishes the image to GHCR on pushes to `main`. (Image is public.)
 
 ## Data Source
 
