@@ -1,0 +1,47 @@
+"""Shared constants for ambulance vitals anomaly detection."""
+
+PHYSIONET_RECORDS: list[tuple[str, str]] = [
+    ("3141595n", "mimic3wdb/1.0/31/3141595"),
+    ("3142857n", "mimic3wdb/1.0/31/3142857"),
+    ("3000086n", "mimic3wdb/1.0/30/3000086"),
+    ("3000100n", "mimic3wdb/1.0/30/3000100"),
+    ("3000126n", "mimic3wdb/1.0/30/3000126"),
+]
+
+COL_HR = "HR"
+COL_SPO2 = "SpO2"
+COL_SBP = "ABPSys"
+COL_DBP = "ABPDias"
+COL_MOTION = "Motion"
+VITAL_COLS = [COL_HR, COL_SPO2, COL_SBP, COL_DBP]
+ALL_COLS = VITAL_COLS + [COL_MOTION]
+
+HR_LOW, HR_HIGH = 40, 150
+SPO2_LOW = 88
+SBP_LOW, SBP_HIGH = 80, 200
+DBP_LOW, DBP_HIGH = 40, 120
+
+WINDOW_SIZE_SEC = 60
+WINDOW_STRIDE_SEC = 10
+
+EARLY_WARNING_HORIZON_SEC = 120
+
+RISK_WEIGHTS = {
+    COL_SPO2: 0.35,
+    COL_SBP: 0.25,
+    COL_HR: 0.25,
+    COL_DBP: 0.15,
+}
+TREND_BONUS_MAX = 15
+RISK_ALERT_THRESHOLD = 70
+CONFIDENCE_MIN = 0.6
+
+MOTION_ARTIFACT_THRESHOLD = 0.6
+SPO2_DROP_THRESHOLD = 3
+HR_SPIKE_THRESHOLD = 20
+MAX_GAP_FILL_SEC = 5
+
+DATA_RAW_DIR = "data/raw"
+DATA_CLEANED_DIR = "data/cleaned"
+PLOTS_DIR = "plots"
+MODELS_DIR = "models"
