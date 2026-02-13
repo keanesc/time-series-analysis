@@ -2165,7 +2165,7 @@ packages:
 - pypi: ./
   name: time-series-analysis
   version: 0.1.0
-  sha256: 3da9d273447bbe2844a1b12d422e84f7fbea1ecb5a1e52e717493d85f1b57fe9
+  sha256: b84518bf09b664e0056e4a3ab4c1a55f42f0b28a4991b0c486d8faccc9f5e997
   requires_dist:
   - wfdb>=4.3.1,<5
   - numpy>=2.4.2,<3

@@ -159,8 +159,18 @@ def main() -> None:
         return
 
     for csv_path in csv_files:
+        # Skip non-patient artifacts (e.g. evaluation results CSV)
+        if csv_path.stem == "evaluation_results":
+            continue
+
         patient_id = csv_path.stem
-        df = pd.read_csv(csv_path, index_col="time", parse_dates=True)
+        try:
+            df = pd.read_csv(csv_path, index_col="time", parse_dates=True)
+        except ValueError:
+            # Defensive: some CSVs may not have a `time` column — skip them.
+            print(f"Skipping {csv_path.name}: no 'time' index")
+            continue
+
         print(f"\nPatient {patient_id}")
 
         alerts, suppressed, normal = 0, 0, 0

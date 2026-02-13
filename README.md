@@ -7,7 +7,7 @@ Production-oriented pipeline for early-warning anomaly detection and triage risk
 This project uses [pixi](https://pixi.sh) for environment management [2].
 
 - Install: `pixi install`
-- Run API: `pixi run serve` → http://localhost:8000
+- Run API: `pixi run serve` → [local](http://localhost:8000)
 - Run full pipeline: `pixi run all`
 
 ## Core commands
@@ -72,6 +72,6 @@ See [report.md](report.md) for detailed methodology, metrics, and safety-critica
 
 ## References
 
-[1] PhysioNet, “MIMIC‑III Waveform Database (v1.0).” [Online]. Available: https://physionet.org/content/mimic3wdb/1.0/
+[1] PhysioNet, “MIMIC‑III Waveform Database (v1.0).” [Online]. Available: [physionet.org/content/mimic3wdb/1.0](https://physionet.org/content/mimic3wdb/1.0/)
 
-[2] P. Zwerschke, “Shipping conda environments to production using pixi,” QuantCo Tech Blog, Jul. 11, 2024. [Online]. Available: https://tech.quantco.com/blog/pixi-production
+[2] P. Zwerschke, “Shipping conda environments to production using pixi,” QuantCo Tech Blog, Jul. 11, 2024. [Online]. Available: [tech.quanto.com/blog/pixi-production](https://tech.quantco.com/blog/pixi-production)

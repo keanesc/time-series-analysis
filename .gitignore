@@ -2,6 +2,7 @@
 .pixi/*
 !.pixi/config.toml
 
+__pycache__
 assignment.pdf
 data
 rough_notes
