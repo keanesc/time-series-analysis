@@ -50,7 +50,10 @@ pixi run all    # run full pipeline
   returns: `anomaly_flag`, `risk_score`, `confidence`, `alert_status`
 
 Example:
-`curl -X POST http://localhost:8000/predict -H "Content-Type: application/json" -d '{"hr":120,"spo2":88,"sbp":85,"dbp":55,"motion":0.1}'`
+
+```bash
+curl -X POST http://localhost:8000/predict -H "Content-Type: application/json" -d '{"hr":120,"spo2":88,"sbp":85,"dbp":55,"motion":0.1}'
+```
 
 Response:
 
